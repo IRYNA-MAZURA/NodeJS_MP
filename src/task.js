@@ -31,7 +31,7 @@ app.use(express.json());
 app.use('/', router);
 app.listen(3000, () => console.log('Listening on port 3000...'));
 
-router.get('/:id', async (req, res) => {
+router.get('/user/:id', async (req, res) => {
   const id = req.params.id;
 
   await getUser(id)
@@ -45,10 +45,7 @@ router.get('/:id', async (req, res) => {
     });
 });
 
-router.get('/', validator.query(querySchema), async (req, res) => {
-  console.log('req', req);
-  console.log('req.query', req.query);
-
+router.get('/users', validator.query(querySchema), async (req, res) => {
   const loginSubstr = req.query.loginSubstr;
   const limit = req.query.limit;
 
@@ -63,7 +60,7 @@ router.get('/', validator.query(querySchema), async (req, res) => {
     });
 });
 
-router.post('/', validator.body(bodySchema), async (req, res) => {
+router.post('/create-user', validator.body(bodySchema), async (req, res) => {
   await createUser(req.body)
     .then(user => res.status(201).json({
       message: `The user #${user.id} has been created`,
@@ -72,7 +69,7 @@ router.post('/', validator.body(bodySchema), async (req, res) => {
     .catch(err => res.status(500).json({ message: err.message }));
 });
 
-router.delete('/:id', async (req, res) => {
+router.delete('/delete-user/:id', async (req, res) => {
   const id = req.params.id;
 
   await deleteUser(id)
@@ -87,7 +84,7 @@ router.delete('/:id', async (req, res) => {
     });
 });
 
-router.put('/:id',
+router.put('/update-user/:id',
   validator.body(bodySchema),
   validator.params(paramsSchema),
   async (req, res) => {
