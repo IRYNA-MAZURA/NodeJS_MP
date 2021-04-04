@@ -1,0 +1,35 @@
+{
+  "name": "nodejs_mp",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "dependencies": {
+    "@babel/cli": "^7.13.14",
+    "@babel/core": "^7.13.14",
+    "@babel/node": "^7.13.13",
+    "@babel/polyfill": "^7.12.1",
+    "@babel/preset-env": "^7.13.12",
+    "@hapi/joi": "^17.1.1",
+    "express": "^4.17.1",
+    "express-joi-validation": "^5.0.0",
+    "typescript": "^4.2.3",
+    "uuid": "^8.3.2"
+  },
+  "devDependencies": {
+    "nodemon": "^2.0.7"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "task": "nodemon --exec babel-node ./src/task.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/IRYNA-MAZURA/NodeJS_MP.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/IRYNA-MAZURA/NodeJS_MP/issues"
+  },
+  "homepage": "https://github.com/IRYNA-MAZURA/NodeJS_MP#readme"
+}
