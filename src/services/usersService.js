@@ -16,8 +16,9 @@ export const getAutoSuggestUsers = (loginSubstr, limit) => {
 };
 
 export const createUser = (data) => {
-    const { age, login, password } = data;
+    const { id, age, login, password } = data;
     const userData = {
+        id,
         age,
         login,
         password
@@ -40,8 +41,9 @@ export const createUser = (data) => {
 };
 
 export const updateUser = (data, params) => {
-    const { age, login, password } = data;
+    const { id, age, login, password } = data;
     const userData = {
+        id,
         age,
         login,
         password

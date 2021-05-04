@@ -1,12 +1,15 @@
 import Sequelize from 'sequelize';
 import db from '../data-access/db';
 
-export default db.define('users', {
+export default db.define('groups', {
     id: {
         type: Sequelize.UUID,
         primaryKey: true
     },
-    age: { type: Sequelize.NUMBER },
-    login: { type: Sequelize.STRING },
-    password: { type: Sequelize.STRING }
+    name: {
+        type: Sequelize.STRING
+    },
+    permissions: {
+        type: Sequelize.ARRAY(Sequelize.STRING)
+    }
 }, { timestamps: false });
