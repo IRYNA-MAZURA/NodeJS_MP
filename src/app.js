@@ -1,4 +1,5 @@
 import express from 'express';
+import cors from 'cors';
 import sequelize from './data-access/db';
 import userRouter from './routers/userControllers';
 import groupRouter from './routers/groupControllers';
@@ -61,5 +62,7 @@ process.on('uncaughtException', (err, req, res) => {
 process.on('unhandledRejection', (err) => {
     logError(err);
 });
+
+app.use(cors());
 
 app.listen(PORT, () => console.log(`Listening on port ${PORT}...`));
