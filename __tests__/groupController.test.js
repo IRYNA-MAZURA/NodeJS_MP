@@ -1,8 +1,8 @@
 import 'babel-polyfill';
-import { createGroup, updateGroup, findAllGroups, deleteGroup } from '../src/hw-4/services/groupServices';
-import Group from '../src/hw-4/models/Group';
+import { createGroup, updateGroup, findAllGroups, deleteGroup } from '../src/services/groupServices';
+import Group from '../src/models/Group';
 
-jest.mock('../src/hw-4/models/Group');
+jest.mock('../src/models/Group');
 
 describe('Group controller', () => {
     beforeEach(() => {

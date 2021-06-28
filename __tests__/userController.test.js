@@ -1,8 +1,8 @@
 import 'babel-polyfill';
-import { createUser, updateUser, findUser, deleteUser } from '../src/hw-4/services/usersService';
-import User from '../src/hw-4/models/User';
+import { createUser, updateUser, findUser, deleteUser } from '../src/services/usersService';
+import User from '../src/models/User';
 
-jest.mock('../src/hw-4/models/User');
+jest.mock('../src/models/User');
 
 describe('User controller', () => {
     beforeEach(() => {
