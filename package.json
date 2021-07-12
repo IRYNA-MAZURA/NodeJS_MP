@@ -31,7 +31,7 @@
     "jest": "^27.0.4"
   },
   "scripts": {
-    "test": "jest",
+    "test": "jest --coverage",
     "task": "nodemon --exec babel-node ./src/app.js",
     "lint": "eslint ./src --fix"
   },

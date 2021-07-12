@@ -73,7 +73,7 @@ export const deleteUser = (params) => {
 };
 
 export const getUserByLogin = (userLogin) => {
-    return this.userModel.findOne({ where: { login: userLogin } })
+    return User.findOne({ where: { login: userLogin } })
         .then((affectedRow) => affectedRow)
         .catch(error => {
             throw error;

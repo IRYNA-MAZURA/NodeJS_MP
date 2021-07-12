@@ -1,6 +1,7 @@
 import 'babel-polyfill';
-import { createGroup, updateGroup, findAllGroups, deleteGroup } from '../src/services/groupServices';
+import { createGroup, updateGroup, findAllGroups, deleteGroup, addUsersToGroup } from '../src/services/groupServices';
 import Group from '../src/models/Group';
+import User from '../src/models/User';
 
 jest.mock('../src/models/Group');
 
@@ -9,7 +10,9 @@ describe('Group controller', () => {
         Group.create = jest.fn().mockResolvedValueOnce({});
         Group.update = jest.fn().mockResolvedValueOnce({});
         Group.findAll = jest.fn().mockResolvedValueOnce({});
+        Group.findOne = jest.fn().mockResolvedValueOnce({ addUsers: jest.fn().mockResolvedValueOnce({}) });
         Group.destroy = jest.fn().mockResolvedValueOnce({});
+        User.findAll = jest.fn().mockResolvedValueOnce({});
     });
 
     test('Should create Group record in DB', (done) => {
@@ -56,6 +59,14 @@ describe('Group controller', () => {
                         name: 'test Group'
                     }
                 });
+                done();
+            })
+    });
+
+    test('Should delete Group record from DB which match the search', (done) => {
+        addUsersToGroup('test Group', 'test')
+            .then(() => {
+                expect(User.findAll).toBeCalledTimes(1);
                 done();
             })
     });
